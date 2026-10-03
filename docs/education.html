@@ -1,5 +1,77 @@
 <!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مدار | مساحة التعلم والتعليم</title><style>
 :root{--ink:#173e40;--green:#176b60;--muted:#637b78;--line:#d9e4db}*{box-sizing:border-box}body{margin:0;background:#f5f3eb;color:var(--ink);font:16px 'Segoe UI',Tahoma,sans-serif}header,main,footer{max-width:1180px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}header strong{font-size:27px}header small{display:block;color:var(--muted);font-size:12px}button,a{touch-action:manipulation}button{font:inherit;cursor:pointer}a{color:var(--green)}.intro{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;padding:35px 0}h1{font-size:clamp(32px,4.5vw,52px);line-height:1.4;margin:12px 0}p{line-height:1.85;color:var(--muted)}.eyebrow{font-size:13px;color:var(--green);font-weight:700}.preview{border-radius:26px;background:linear-gradient(#8cb8c8 0%,#eed3a0 69%,#426752 70%);height:230px;position:relative;overflow:hidden;box-shadow:0 15px 40px #143c4012}.sun{position:absolute;right:55px;top:50px;width:42px;height:42px;border-radius:50%;background:#fff1b8;box-shadow:0 0 24px #ffedbb}.horizon{position:absolute;top:70%;left:0;right:0;border-top:2px dashed #f8edcc}.east,.west{position:absolute;bottom:22px;color:white;font-weight:bold}.east{right:24px}.west{left:24px}.arc{position:absolute;top:15px;right:20px;color:#173e40;font-size:12px}.role-bar{display:flex;gap:10px;padding:8px;background:#e8eee5;border-radius:16px;width:fit-content}.role-bar button{border:0;padding:12px 24px;border-radius:11px;background:transparent;color:var(--ink);font-weight:600}.role-bar button[aria-selected=true]{background:var(--green);color:white}.path-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;margin:25px 0 16px}.path-heading h2{margin:0;font-size:24px}.path-heading span{font-size:13px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{border:1px solid var(--line);background:white;border-radius:20px;padding:22px;display:flex;flex-direction:column;min-width:0}.number{width:35px;height:35px;border-radius:12px;background:#eaf2eb;color:var(--green);display:grid;place-items:center;font-size:14px}.card h3{font-size:20px;margin:16px 0 5px}.card p{font-size:14px;margin:6px 0 20px}.card a{display:block;background:#e8efea;color:var(--ink);text-decoration:none;padding:11px;border-radius:11px;text-align:center;margin-top:auto;font-size:14px;font-weight:600}.card:first-child a{background:var(--green);color:white}.panel{padding:22px;border:1px solid var(--line);border-radius:20px;margin:25px 0;background:#fff9}.panel h2{font-size:20px;margin:0 0 10px}.panel p{font-size:14px;margin:8px 0}.utility{display:flex;gap:16px;flex-wrap:wrap;font-size:14px}footer{border-top:1px solid var(--line);font-size:12px;color:var(--muted)}[hidden]{display:none!important}a:focus-visible,button:focus-visible{outline:3px solid #d99b42;outline-offset:4px}@media(max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){header,main,footer{padding:18px}.intro{grid-template-columns:1fr;gap:18px;padding:22px 0}.preview{height:150px}.path-heading{align-items:flex-start;flex-direction:column;gap:7px}.grid{grid-template-columns:1fr}.card{padding:20px}.role-bar{width:100%}.role-bar button{flex:1;padding:12px}.card p{margin-bottom:14px}}
+</style><style id="madar-visual-theme">/* Shared presentation layer. Solar equations, camera and scene geometry stay in the renderer. */
+:root{--ink:#183b43;--muted:#5c7075;--navy:#123d46;--blue:#176b73;--paper:#f7f8f5;--line:#dce6e3;--gold:#d7a747;--madar-shadow:0 6px 24px #163d4610}
+body{background:var(--paper);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3{color:var(--ink);line-height:1.55;letter-spacing:0;font-weight:650}
+p{color:var(--muted)}
+button,a,input,select,textarea,summary{-webkit-tap-highlight-color:transparent}
+button{border-radius:10px;min-height:40px;transition:background-color .15s,border-color .15s;box-shadow:none}
+button:hover:not(:disabled){background:#eaf3ef;border-color:#6d9d98}
+button.primary,button[type=submit],#startLive,#copyLiveLink{background:#176b63;color:#fff;border-color:#176b63}
+button.primary:hover,button[type=submit]:hover,#startLive:hover,#copyLiveLink:hover{background:#10564f;color:#fff}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #c9902e;outline-offset:3px}
+input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{border-radius:9px;border-color:#c9dbd5;background:#fff;min-height:40px}
+input[type=time],input[type=date],input[type=number],.scene-clock,.metrics dd,.stops small,#liveStatus{font-variant-numeric:tabular-nums}
+input[type=range],input[type=checkbox],input[type=radio]{accent-color:#176b73}
+header.top,.top{background:#fffefb;border-bottom:1px solid var(--line)}
+.brand-mark{background:#123d46;color:#edcb7b;box-shadow:0 3px 12px #123d4618}
+nav{gap:6px}
+nav button{border-radius:10px;min-height:42px}
+.nav.active{background:#e6f1eb;color:#145b55;font-weight:650}
+main{padding-top:22px}
+.intro h1,.section-head h1{font-size:clamp(24px,2.3vw,32px);white-space:normal;overflow-wrap:break-word}
+.intro>div{min-width:0}
+.intro:has(.preview) h1{font-size:clamp(32px,3.4vw,46px)}
+#explore.panel{background:transparent;border:0;box-shadow:none}
+.intro p,.section-head p{line-height:1.9}
+.public-banner{background:#edf4ee!important;color:#315e57!important;border-bottom:1px solid #dbe7de;line-height:1.8}
+.settings,.camera-tools,.timeline,.lesson,.quiz-info,.question-card,.teacher-card,.source-card,.card,.panel,.notice,.comparison,.false-dawn-tools,.upcoming-prayers{border-color:var(--line);border-radius:14px;background:#fff;box-shadow:var(--madar-shadow)}
+.settings,.camera-tools{gap:12px}
+details>summary{cursor:pointer;color:#244e53;line-height:1.8;font-weight:600;min-height:44px;display:list-item;padding-block:9px}
+details[open]>summary{border-bottom:1px solid #e3ece7;margin-bottom:12px}
+#city-search-fold,#scene-view-fold{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--madar-shadow);margin-bottom:12px;padding:0 16px}
+#city-search-fold .settings,#scene-view-fold .camera-tools{box-shadow:none;border:0;padding-inline:0;margin-bottom:12px}
+.upcoming-prayers{padding-inline:14px}
+.upcoming-prayers summary{font-size:14px}
+.stage{box-shadow:0 8px 28px #15374418;border-color:#91a9ac;border-radius:16px}
+.timeline{padding-top:12px}
+.timeline-ticks{font-variant-numeric:tabular-nums}
+.stops button{border-radius:11px;background:#fff;min-height:54px}
+.stops button.active{background:#e7f2ed;border-color:#176b73;color:#145b55;box-shadow:inset 0 -3px #176b73}
+.stops button small{color:#516b70}
+.lesson h2{font-size:23px}
+.restriction{line-height:1.8}
+.below-scene-rings span{border-radius:8px}
+.ring-double{border-color:#8c48c1!important}
+.transport{gap:10px}
+.transport button{min-height:42px}
+.live-classroom-bar{background:#f0f6f1!important;border:1px solid #cbded4!important;border-radius:16px!important;box-shadow:var(--madar-shadow);padding:18px!important}
+.live-classroom-bar h2{font-size:21px}
+.live-classroom-bar p{font-size:14px;margin:8px 0}
+.live-classroom-bar button{margin:4px 0 4px 6px}
+#endLive{color:#8c3434;background:#fff;border-color:#dbc7c7}
+#liveStatus:not(:empty),#learningModeStatus,#siteSaveConfirmation:not(:empty){background:#fff;border:1px solid #d8e5dd;border-radius:10px;padding:9px 12px;line-height:1.8}
+#siteCopyPanel>h2{font-size:25px}
+#siteCopyForm>section{margin-block:26px;padding:20px;border:1px solid #d8e5dd;border-radius:14px;background:#f7faf7}
+#siteCopyForm>section h2{margin-top:0;font-size:21px}
+#pageManagement label{padding:12px;background:#fff;border:1px solid #dce6e0;border-radius:10px}
+#liveViewLink{font-size:13px}
+.cloud-gate form{box-shadow:0 16px 48px #163d4614;border-radius:20px!important}
+.cloud-gate h1{font-size:clamp(26px,3vw,36px)!important}
+.cloud-gate button{min-width:110px}
+#cloudLoginStatus:not(:empty){background:#f4f7f3;border-radius:9px;padding:10px;font-size:14px}
+.form label,.teacher-card label{line-height:1.8}
+.form h2,.teacher-card h2{font-size:22px}
+table{font-variant-numeric:tabular-nums}
+th{background:#edf4ef;color:#244e53}
+footer{background:#f0f4ee;border-top:1px solid #dce6da;color:#556c68;line-height:1.9;padding:24px 4%}
+.card{transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:#88b5a7;box-shadow:0 8px 28px #163d4617}
+@media(max-width:1000px){.intro p{max-width:none}nav button{min-height:44px}.live-classroom-bar{padding:14px!important}}
+@media(max-width:760px){body{font-size:15px}.top{gap:12px}.top nav{gap:4px;justify-content:flex-start}.top nav button{font-size:13px;padding:8px 11px}.brand{font-size:25px}main{padding-inline:4%}.public-banner{font-size:13px!important}#city-search-fold,#scene-view-fold{padding-inline:12px}details>summary{font-size:14px}.camera-tools .buttons{gap:8px}.camera-tools button{min-height:42px;font-size:12px}.camera-tools label{min-height:36px}.transport{gap:8px}.transport button{min-height:44px}.stops button{min-width:88px}.scene-rings span{line-height:1.7}.live-classroom-bar button{min-height:44px}.live-classroom-bar p{font-size:13px}.cloud-gate form{padding:24px!important;width:min(94vw,460px)!important}.form input,.form select,.form textarea{max-width:100%}footer{font-size:12px}}
+@media(prefers-reduced-motion:reduce){button,.card{transition:none}}
 </style><script src="cloud-config.js"></script></head><body><header><div><strong>مدار ◒</strong><small>استكشف · افهم · طبّق</small></div><span class="eyebrow">مساحة التعلم والتعليم</span></header><main><section class="intro"><div><span class="eyebrow">مواقيت الصلاة — من العلامة إلى الفهم</span><h1>درس تشاهده.<br>وفهم تختبره.</h1><p>ابدأ بالمشهد، وتأمل حركة الشمس والظل، ثم طبّق ما تعلمته في التمارين والتقييمات. اختر مساحتك للمتابعة.</p></div><div class="preview" aria-label="المشرق يمينًا والمغرب يسارًا"><span class="arc">حركة اليوم من اليمين إلى اليسار ←</span><div class="sun"></div><div class="horizon"></div><span class="east">المشرق</span><span class="west">المغرب</span></div></section><div class="role-bar" role="tablist" aria-label="اختيار مساحة المستخدم"><button id="learnerTab" role="tab" aria-selected="true" aria-controls="learnerPath">مساحة المتعلم</button><button id="teacherTab" role="tab" aria-selected="false" aria-controls="teacherPath">مساحة المعلم</button></div>
 <section id="learnerPath" role="tabpanel" aria-labelledby="learnerTab"><div class="path-heading"><h2>رحلتك في التعلم</h2><span>افهم العلامة، ثم جرّب تطبيقها</span></div><div class="grid"><article class="card"><span class="number">١</span><h3>الدرس والمشهد</h3><p>شاهد علامات مواقيت الصلاة، وحرّك الزمن لفهم الشمس والظل والليل والنهار.</p><a href="display.html">ابدأ الدرس</a></article><article class="card"><span class="number">٢</span><h3>التدريب</h3><p>استكشف المشهد، ثم جرّب الأنشطة والأسئلة كلًا على حدة.</p><a href="exercises.html">افتح التمارين</a></article><article class="card"><span class="number">٣</span><h3>التقييم</h3><p>ابدأ جلسة أسئلة متتابعة وفق الوقت وطريقة التقدم اللذين حددهما المعلم.</p><a href="exercises.html#assessment">افتح جلسة التقييم</a></article><article class="card"><span class="number">٤</span><h3>نتائج التعلم</h3><p>راجع الإجابات والتغذية الراجعة وتقدم المهارات، ونزّل تقريرك.</p><a href="exercises.html#results">اعرض النتائج</a></article></div><div class="panel"><h2>تعلم بالملاحظة والتجربة</h2><p>في الدرس: لاحظ العلامة قبل قراءة التفسير. في التدريب: غيّر الوقت واختبر استنتاجك. بعد التقييم: راجع سبب الإجابة، ثم عد إلى المشهد عند الحاجة.</p></div></section>
 <section id="teacherPath" role="tabpanel" aria-labelledby="teacherTab" hidden><div class="path-heading"><h2>مساحتك للتعليم والتصميم</h2><span>الشرح، وبناء الأسئلة، ومراجعة أثر التعلم</span></div><div class="grid"><article class="card"><span class="number">١</span><h3>الشرح المباشر</h3><p>ابدأ جلسة، وشارك رابط المشاهدة، ثم حرّك الشمس ليتابع الطلاب المشهد من أجهزتهم.</p><a href="live-teacher.html?v=class2">ابدأ الشرح المباشر</a></article><article class="card"><span class="number">٢</span><h3>بناء الأسئلة</h3><p>اختر الصلاة ونوع السؤال، واضبط الإجابة المقبولة، ثم جرّب معاينة الطالب.</p><a href="teacher.html#teacher">افتح محرر الأسئلة</a></article><article class="card"><span class="number">٣</span><h3>إعداد التقييم</h3><p>رتب أسئلة الجلسة، واضبط الرجوع والوقت والدرجات والتغذية الراجعة.</p><a href="teacher.html#session-settings">اضبط الجلسة</a></article><article class="card"><span class="number">٤</span><h3>تقارير التعلم</h3><p>اجمع تقارير المتعلمين وراجع النتائج والمهارات لتطوير الأسئلة.</p><a href="teacher.html#reports">افتح التقارير</a></article></div><div class="panel"><h2>دورة عمل واضحة</h2><p>اضبط اليوم ← ابنِ السؤال ← اختبره كمتعلم ← جهّز الجلسة ← سلّم حزمة الأسئلة للمشرف ← راجع التقارير وطوّر الدرس.</p><div class="utility"><a href="teacher.html#reports">تجميع تقارير المتعلمين</a><a href="exercises.html">معاينة تجربة الطالب</a></div><p>الدخول إلى أدوات المعلم محمي بحساب وصلاحية. رابط جلسة الشرح يمنح الطلاب المشاهدة فقط.</p></div></section></main><footer>مدار — مساحة تعليمية لمواقيت الصلاة. يضبط المعلم المحتوى والجدول وفق مرجعه.</footer><script>

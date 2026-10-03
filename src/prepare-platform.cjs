@@ -2,7 +2,9 @@ const fs=require('fs'),path=require('path'),dir=__dirname,root=path.basename(dir
 const build=path.join(dir,'build-exercises.cjs');let builder=fs.readFileSync(build,'utf8');if(!builder.includes("'platform-polish.js'")){builder=builder.replace("fs.readFileSync(path.join(__dirname,'scene-zoom.js'),'utf8')","fs.readFileSync(path.join(__dirname,'scene-zoom.js'),'utf8')+'\\n'+fs.readFileSync(path.join(__dirname,'platform-polish.js'),'utf8')");fs.writeFileSync(build,builder)}
 require('./build-exercises.cjs');
 fs.mkdirSync(path.join(root,'docs'),{recursive:true});fs.mkdirSync(path.join(root,'.github','workflows'),{recursive:true});
-let html=fs.readFileSync(path.join(dir,'تمارين-مدار.html'),'utf8');
+const visualTheme='<style id="madar-visual-theme">'+fs.readFileSync(path.join(dir,'visual-theme.css'),'utf8')+'</style>';
+const themed=content=>content.includes('</head>')?content.replace('</head>',visualTheme+'</head>'):content.replace('<main>',visualTheme+'<main>');
+let html=themed(fs.readFileSync(path.join(dir,'تمارين-مدار.html'),'utf8'));
 html=html.replace('</head>','<script src="cloud-config.js"></script></head>').replace('</body>','<script src="cloud-access.js?v=20261003-class4"></script></body>');
 html=html.replace("KEY='madar-exercises-v1'","KEY=window.MADAR_PACK?'madar-course-'+window.MADAR_PACK.id:'madar-exercises-v1'");
 html=html.replace('let current=null,filter=',"if(window.MADAR_PACK&&!state.courseLoaded){state.tasks=structuredClone(window.MADAR_PACK.tasks);state.settings={...DEFAULTS,...window.MADAR_PACK.settings};state.courseLoaded=true;}\nlet current=null,filter=");
@@ -11,9 +13,9 @@ const safeSource=JSON.stringify(html).replace(/</g,'\\u003c');
 const author=html.replace('<!--COURSE_DATA-->',()=>`<script>window.MADAR_SOURCE=${safeSource};<\/script>`);
 fs.writeFileSync(path.join(root,'docs','teacher.html'),author);
 fs.writeFileSync(path.join(root,'docs','exercises.html'),html.replace('<!--COURSE_DATA-->','<script>window.MADAR_LEARNER=true;<\/script>'));
-for(const[src,dest]of [['مدار-للطلاب.html','display.html'],['مدار-للمعلم.html','display-teacher.html']]){let display=fs.readFileSync(path.join(dir,src),'utf8');display=display.replace('</head>','<style>.timeline>input,input[type=range][id*=time],input[type=range][id*=Time]{direction:rtl!important}.platform-home{display:inline-block;padding:9px 14px;color:#176b60;background:white;border-radius:10px;margin:10px;text-decoration:none}</style></head>').replace('<body>','<body><a class="platform-home" href="index.html">← الرئيسية</a>');fs.writeFileSync(path.join(root,'docs',dest),display)}
+for(const[src,dest]of [['مدار-للطلاب.html','display.html'],['مدار-للمعلم.html','display-teacher.html']]){let display=themed(fs.readFileSync(path.join(dir,src),'utf8'));display=display.replace('</head>','<style>.timeline>input,input[type=range][id*=time],input[type=range][id*=Time]{direction:rtl!important}.platform-home{display:inline-block;padding:9px 14px;color:#176b60;background:white;border-radius:10px;margin:10px;text-decoration:none}</style></head>').replace('<body>','<body><a class="platform-home" href="index.html">← الرئيسية</a>');fs.writeFileSync(path.join(root,'docs',dest),display)}
 fs.writeFileSync(path.join(root,'docs','.nojekyll'),'');
-const landing=fs.readFileSync(path.join(dir,'platform-home.html'),'utf8');
+const landing=themed(fs.readFileSync(path.join(dir,'platform-home.html'),'utf8'));
 let publicScreen=fs.readFileSync(path.join(root,'docs','display.html'),'utf8');
 publicScreen=publicScreen.replace('<span>مدار<small>رحلة الشمس ومواقيت الصلاة</small></span>','<span><span id="publicBrand">مدار</span><small id="publicTagline">الشمس والظل ومواقيت الصلاة</small></span>');
 publicScreen=publicScreen.replace('</head>','<style>[data-panel="quiz"],[data-panel="teacher"],#quiz,#teacher,.platform-home,#fullscreen,.student-next-step{display:none!important}.public-banner{padding:10px 4%;background:#edf4ef;display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;color:#176b60;font-size:14px}.public-banner a{white-space:nowrap}</style></head>');
@@ -43,4 +45,4 @@ fs.copyFileSync(path.join(dir,'gps-welcome.js'),path.join(root,'docs','gps-welco
 fs.copyFileSync(path.join(dir,'live-classroom.js'),path.join(root,'docs','live-classroom.js'));
 for(const [dest,source] of [['live-teacher.html','display-teacher.html'],['live-student.html','display.html']]){let live=fs.readFileSync(path.join(root,'docs',source),'utf8').replace('</body>','<script src="live-classroom.js?v=class4"></script></body>');live=live.replace('</head>','<style>[data-panel="quiz"],[data-panel="teacher"],#quiz,#teacher,.student-next-step,#fullscreen{display:none!important}</style></head>');fs.writeFileSync(path.join(root,'docs',dest),live)}
 
-{const dest=path.join(root,'docs','reset-password.html');let html=fs.readFileSync(dest,'utf8');html=html.replace('</html>','<script src="cloud-access.js?v=20261003-class4"></script></html>');fs.writeFileSync(dest,html)}
+{const dest=path.join(root,'docs','reset-password.html');let html=fs.readFileSync(dest,'utf8');html=themed(html);html=html.replace('</html>','<script src="cloud-access.js?v=20261003-class4"></script></html>');fs.writeFileSync(dest,html)}

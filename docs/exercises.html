@@ -99,6 +99,78 @@
 .teacher-day-preview input[type=range],#daySlider,#teacherMinute{direction:rtl!important}
 .time-direction-key{display:flex;justify-content:space-between;direction:rtl;font-size:11px;color:var(--muted);margin-top:5px}
 
+</style><style id="madar-visual-theme">/* Shared presentation layer. Solar equations, camera and scene geometry stay in the renderer. */
+:root{--ink:#183b43;--muted:#5c7075;--navy:#123d46;--blue:#176b73;--paper:#f7f8f5;--line:#dce6e3;--gold:#d7a747;--madar-shadow:0 6px 24px #163d4610}
+body{background:var(--paper);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3{color:var(--ink);line-height:1.55;letter-spacing:0;font-weight:650}
+p{color:var(--muted)}
+button,a,input,select,textarea,summary{-webkit-tap-highlight-color:transparent}
+button{border-radius:10px;min-height:40px;transition:background-color .15s,border-color .15s;box-shadow:none}
+button:hover:not(:disabled){background:#eaf3ef;border-color:#6d9d98}
+button.primary,button[type=submit],#startLive,#copyLiveLink{background:#176b63;color:#fff;border-color:#176b63}
+button.primary:hover,button[type=submit]:hover,#startLive:hover,#copyLiveLink:hover{background:#10564f;color:#fff}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #c9902e;outline-offset:3px}
+input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{border-radius:9px;border-color:#c9dbd5;background:#fff;min-height:40px}
+input[type=time],input[type=date],input[type=number],.scene-clock,.metrics dd,.stops small,#liveStatus{font-variant-numeric:tabular-nums}
+input[type=range],input[type=checkbox],input[type=radio]{accent-color:#176b73}
+header.top,.top{background:#fffefb;border-bottom:1px solid var(--line)}
+.brand-mark{background:#123d46;color:#edcb7b;box-shadow:0 3px 12px #123d4618}
+nav{gap:6px}
+nav button{border-radius:10px;min-height:42px}
+.nav.active{background:#e6f1eb;color:#145b55;font-weight:650}
+main{padding-top:22px}
+.intro h1,.section-head h1{font-size:clamp(24px,2.3vw,32px);white-space:normal;overflow-wrap:break-word}
+.intro>div{min-width:0}
+.intro:has(.preview) h1{font-size:clamp(32px,3.4vw,46px)}
+#explore.panel{background:transparent;border:0;box-shadow:none}
+.intro p,.section-head p{line-height:1.9}
+.public-banner{background:#edf4ee!important;color:#315e57!important;border-bottom:1px solid #dbe7de;line-height:1.8}
+.settings,.camera-tools,.timeline,.lesson,.quiz-info,.question-card,.teacher-card,.source-card,.card,.panel,.notice,.comparison,.false-dawn-tools,.upcoming-prayers{border-color:var(--line);border-radius:14px;background:#fff;box-shadow:var(--madar-shadow)}
+.settings,.camera-tools{gap:12px}
+details>summary{cursor:pointer;color:#244e53;line-height:1.8;font-weight:600;min-height:44px;display:list-item;padding-block:9px}
+details[open]>summary{border-bottom:1px solid #e3ece7;margin-bottom:12px}
+#city-search-fold,#scene-view-fold{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--madar-shadow);margin-bottom:12px;padding:0 16px}
+#city-search-fold .settings,#scene-view-fold .camera-tools{box-shadow:none;border:0;padding-inline:0;margin-bottom:12px}
+.upcoming-prayers{padding-inline:14px}
+.upcoming-prayers summary{font-size:14px}
+.stage{box-shadow:0 8px 28px #15374418;border-color:#91a9ac;border-radius:16px}
+.timeline{padding-top:12px}
+.timeline-ticks{font-variant-numeric:tabular-nums}
+.stops button{border-radius:11px;background:#fff;min-height:54px}
+.stops button.active{background:#e7f2ed;border-color:#176b73;color:#145b55;box-shadow:inset 0 -3px #176b73}
+.stops button small{color:#516b70}
+.lesson h2{font-size:23px}
+.restriction{line-height:1.8}
+.below-scene-rings span{border-radius:8px}
+.ring-double{border-color:#8c48c1!important}
+.transport{gap:10px}
+.transport button{min-height:42px}
+.live-classroom-bar{background:#f0f6f1!important;border:1px solid #cbded4!important;border-radius:16px!important;box-shadow:var(--madar-shadow);padding:18px!important}
+.live-classroom-bar h2{font-size:21px}
+.live-classroom-bar p{font-size:14px;margin:8px 0}
+.live-classroom-bar button{margin:4px 0 4px 6px}
+#endLive{color:#8c3434;background:#fff;border-color:#dbc7c7}
+#liveStatus:not(:empty),#learningModeStatus,#siteSaveConfirmation:not(:empty){background:#fff;border:1px solid #d8e5dd;border-radius:10px;padding:9px 12px;line-height:1.8}
+#siteCopyPanel>h2{font-size:25px}
+#siteCopyForm>section{margin-block:26px;padding:20px;border:1px solid #d8e5dd;border-radius:14px;background:#f7faf7}
+#siteCopyForm>section h2{margin-top:0;font-size:21px}
+#pageManagement label{padding:12px;background:#fff;border:1px solid #dce6e0;border-radius:10px}
+#liveViewLink{font-size:13px}
+.cloud-gate form{box-shadow:0 16px 48px #163d4614;border-radius:20px!important}
+.cloud-gate h1{font-size:clamp(26px,3vw,36px)!important}
+.cloud-gate button{min-width:110px}
+#cloudLoginStatus:not(:empty){background:#f4f7f3;border-radius:9px;padding:10px;font-size:14px}
+.form label,.teacher-card label{line-height:1.8}
+.form h2,.teacher-card h2{font-size:22px}
+table{font-variant-numeric:tabular-nums}
+th{background:#edf4ef;color:#244e53}
+footer{background:#f0f4ee;border-top:1px solid #dce6da;color:#556c68;line-height:1.9;padding:24px 4%}
+.card{transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:#88b5a7;box-shadow:0 8px 28px #163d4617}
+@media(max-width:1000px){.intro p{max-width:none}nav button{min-height:44px}.live-classroom-bar{padding:14px!important}}
+@media(max-width:760px){body{font-size:15px}.top{gap:12px}.top nav{gap:4px;justify-content:flex-start}.top nav button{font-size:13px;padding:8px 11px}.brand{font-size:25px}main{padding-inline:4%}.public-banner{font-size:13px!important}#city-search-fold,#scene-view-fold{padding-inline:12px}details>summary{font-size:14px}.camera-tools .buttons{gap:8px}.camera-tools button{min-height:42px;font-size:12px}.camera-tools label{min-height:36px}.transport{gap:8px}.transport button{min-height:44px}.stops button{min-width:88px}.scene-rings span{line-height:1.7}.live-classroom-bar button{min-height:44px}.live-classroom-bar p{font-size:13px}.cloud-gate form{padding:24px!important;width:min(94vw,460px)!important}.form input,.form select,.form textarea{max-width:100%}footer{font-size:12px}}
+@media(prefers-reduced-motion:reduce){button,.card{transition:none}}
 </style><script src="cloud-config.js"></script></head><body><header><div><b>مدار <span style="color:#cb8f38">◒</span></b><small>استكشف • طبّق • افهم</small></div><nav aria-label="أقسام التمارين"><button data-page="student" class="active">التمارين</button><button data-page="teacher">لوحة المعلم</button><button data-page="insights">نتائج التجربة</button></nav></header><main>
 <section id="student"><div id="catalog"><div class="hero"><div><span class="eyebrow">مواقيت الصلاة / مساحة التطبيق</span><h1>المعرفة تصبح تجربة</h1><p>حرّك المشهد، وحدد الدليل، ثم اختبر فهمك.<br>ابدأ من أي نشاط، وخذ وقتك في الاستكشاف.</p></div><div class="pill" id="progress">٠ من ٣ مهارات مكتملة</div></div><div class="session-launch"><div><span>مشهد واحد · أسئلة متتابعة</span><h2 id="sessionName"></h2><p id="sessionRules"></p></div><button id="startSession">ابدأ الجلسة</button></div><div class="tabs" role="group" aria-label="تصنيف التمارين"><button data-filter="all" class="active">كل التمارين</button><button data-filter="interactive">أنشطة تطبيقية</button><button data-filter="quiz">أسئلة ومراجعة</button></div><div class="grid" id="cards"></div><div class="notice">تدخل كضيف دون اسم. تُحفظ محاولاتك وتفاعلات الحل على هذا المتصفح فقط لتعرض لك تقدمك. لا تُرسل البيانات إلى خادم. يمكنك تصديرها أو مسحها من «نتائج التجربة».</div></div>
 <div id="exercise" hidden><button class="secondary back" id="back">← العودة إلى التمارين</button><div id="sessionBar" class="session-bar" hidden><div><h2 id="sessionTitle"></h2><b id="questionPosition"></b><small id="sessionPolicy"></small></div><progress id="sessionMeter" max="3" value="0" aria-label="تقدم الجلسة"></progress><div class="timer"><span id="questionTimer"></span><small id="totalTimer"></small></div></div><div id="exitNotice" class="notice" hidden>إنهاء الجلسة الآن يحفظ النتائج الحالية، ويسجل الأسئلة الباقية على أنها غير مستكملة. <button id="confirmExit">إنهاء وحفظ</button> <button id="cancelExit" class="secondary">متابعة الجلسة</button></div><div class="work"><div><div class="scene" id="sceneWrap"><svg id="scene" viewBox="0 0 800 490" role="img" aria-label="مشهد تعليمي مبسط للأفق والشمس"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#153c53"/><stop offset="1" stop-color="#edae73"/></linearGradient><radialGradient id="glow"><stop stop-color="#fff3bf" stop-opacity=".65"/><stop offset="1" stop-color="#fff3bf" stop-opacity="0"/></radialGradient></defs><rect width="800" height="490" fill="url(#sky)"/><circle cx="120" cy="70" r="2" fill="#fff8"/><circle cx="600" cy="80" r="2" fill="#fff8"/><path d="M0 360 Q120 320 240 359 T500 357 T800 350 V490 H0Z" fill="#325d58"/><path d="M0 395 Q230 361 450 403 T800 390 V490 H0Z" fill="#214b46"/><g id="sun" tabindex="0" role="slider" aria-label="ارتفاع الشمس؛ يمكن التحكم من شريط الارتفاع" aria-valuemin="-70" aria-valuemax="120" aria-valuenow="80" style="cursor:grab"><circle r="66" fill="url(#glow)"/><circle r="25" fill="#ffe5a1" stroke="#fff6d3" stroke-width="3"/></g><rect y="350" width="800" height="140" fill="#325951"/><path d="M0 350 H800" stroke="#e4c593" stroke-width="2" stroke-dasharray="8 6"/><text x="90" y="337" fill="#fff4dc" font-size="18">الأفق</text><g fill="#173e39"><rect x="550" y="302" width="128" height="48"/><path d="M565 302 Q613 244 662 302Z"/><rect x="689" y="252" width="19" height="98"/><path d="M686 252 L698 230 L711 252Z"/></g><g id="marker" hidden><circle r="25" fill="#ffffff22" stroke="white" stroke-width="3"/><path d="M-34 0 H34 M0 -34 V34" stroke="white" stroke-width="2"/></g><text id="sceneInstruction" x="400" y="455" text-anchor="middle" fill="#e8eee5" font-size="18">حرّك الشمس أو استخدم شريط الارتفاع</text></svg><div class="controls" id="sunControls"><label for="height">ارتفاع الشمس في المشهد</label><input id="height" type="range" min="-70" max="120" value="80"><small>استخدم السحب أو الأسهم على شريط الارتفاع.</small></div><div class="scene-note">رسم مبسط لفهم العلامة؛ لا يحدد المواقيت الفعلية. يمكن وضع المؤشر بالنقر أو اللمس.</div></div><div id="quizWrap" class="card" hidden><span class="eyebrow">اختر الإجابة المناسبة</span><h2 id="quizText"></h2><div class="options" id="options"></div></div></div><aside class="task"><span class="tag" id="kind"></span><h2 id="taskTitle"></h2><p id="prompt"></p><small id="objective"></small><label id="confidenceLabel">ما مدى ثقتك بإجابتك؟ <small>(اختياري)</small></label><div class="confidence" id="confidence"><button data-confidence="low">أحتاج مراجعة</button><button data-confidence="medium">متردد قليلًا</button><button data-confidence="high">واثق</button></div><div class="actions"><button id="confirm">تأكيد الإجابة</button><button class="secondary" id="hint">تلميح</button></div><div id="feedback" class="feedback" role="status" hidden></div><div id="autoAdvance" role="status" hidden></div><p id="sessionMessage" role="status"></p><div class="actions"><button id="previous" class="secondary" hidden>السؤال السابق · مراجعة</button></div><div id="after" hidden><div class="actions"><button class="secondary" id="retry">محاولة أخرى</button><button class="secondary" id="next">تمرين آخر</button></div><label for="issue">ما الذي يحتاج توضيحًا؟</label><select id="issue"><option value="">اختر إن رغبت</option><option>المطلوب</option><option>الصورة</option><option>طريقة التفاعل</option><option>تفسير الإجابة</option><option>كل شيء واضح</option></select></div></aside></div></div><div id="sessionSummary" hidden><span class="eyebrow">حصيلة الجلسة</span><h1 id="summaryTitle"></h1><p class="summary-note">كل سؤال يحتفظ بإجابته ولقطة المشهد عند التأكيد. الرجوع أثناء الجلسة للمراجعة، ولا يغير الإجابات المؤكدة.</p><div class="stats" id="summaryStats"></div><div class="actions"><button id="returnCatalog">العودة إلى التمارين</button><button id="exportSession" class="secondary">تنزيل النتائج</button></div><h2>مراجعة الأسئلة</h2><div id="summaryList" class="session-summary-list"></div></div></section>

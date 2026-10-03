@@ -38,6 +38,78 @@
 
 .phone-orientation-tip{display:none}.phone-orientation-tip.dismissed{display:none!important}@media(max-width:760px) and (orientation:portrait){.phone-orientation-tip{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:8px 0;background:#eef7fb;border:1px solid #c8e0ec;border-radius:10px;color:#17445a;font-size:13px}.phone-orientation-tip button{flex-shrink:0;padding:4px 10px;font-size:20px}}
 @media(max-height:500px) and (orientation:landscape) and (pointer:coarse){.scene-workspace>.stage,.stage-layout.wide-scene.scene-workspace>.stage,.presentation .scene-workspace>.stage{height:72dvh;min-height:220px}.scene-control-dock{grid-template-columns:minmax(0,1fr) 240px}.live-shadow-ruler{grid-column:2;grid-row:2 / span 2}.scene-control-dock .stops{grid-row:4}.scene-control-dock #ban-summary{grid-row:5}}
+</style><style id="madar-visual-theme">/* Shared presentation layer. Solar equations, camera and scene geometry stay in the renderer. */
+:root{--ink:#183b43;--muted:#5c7075;--navy:#123d46;--blue:#176b73;--paper:#f7f8f5;--line:#dce6e3;--gold:#d7a747;--madar-shadow:0 6px 24px #163d4610}
+body{background:var(--paper);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3{color:var(--ink);line-height:1.55;letter-spacing:0;font-weight:650}
+p{color:var(--muted)}
+button,a,input,select,textarea,summary{-webkit-tap-highlight-color:transparent}
+button{border-radius:10px;min-height:40px;transition:background-color .15s,border-color .15s;box-shadow:none}
+button:hover:not(:disabled){background:#eaf3ef;border-color:#6d9d98}
+button.primary,button[type=submit],#startLive,#copyLiveLink{background:#176b63;color:#fff;border-color:#176b63}
+button.primary:hover,button[type=submit]:hover,#startLive:hover,#copyLiveLink:hover{background:#10564f;color:#fff}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #c9902e;outline-offset:3px}
+input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea{border-radius:9px;border-color:#c9dbd5;background:#fff;min-height:40px}
+input[type=time],input[type=date],input[type=number],.scene-clock,.metrics dd,.stops small,#liveStatus{font-variant-numeric:tabular-nums}
+input[type=range],input[type=checkbox],input[type=radio]{accent-color:#176b73}
+header.top,.top{background:#fffefb;border-bottom:1px solid var(--line)}
+.brand-mark{background:#123d46;color:#edcb7b;box-shadow:0 3px 12px #123d4618}
+nav{gap:6px}
+nav button{border-radius:10px;min-height:42px}
+.nav.active{background:#e6f1eb;color:#145b55;font-weight:650}
+main{padding-top:22px}
+.intro h1,.section-head h1{font-size:clamp(24px,2.3vw,32px);white-space:normal;overflow-wrap:break-word}
+.intro>div{min-width:0}
+.intro:has(.preview) h1{font-size:clamp(32px,3.4vw,46px)}
+#explore.panel{background:transparent;border:0;box-shadow:none}
+.intro p,.section-head p{line-height:1.9}
+.public-banner{background:#edf4ee!important;color:#315e57!important;border-bottom:1px solid #dbe7de;line-height:1.8}
+.settings,.camera-tools,.timeline,.lesson,.quiz-info,.question-card,.teacher-card,.source-card,.card,.panel,.notice,.comparison,.false-dawn-tools,.upcoming-prayers{border-color:var(--line);border-radius:14px;background:#fff;box-shadow:var(--madar-shadow)}
+.settings,.camera-tools{gap:12px}
+details>summary{cursor:pointer;color:#244e53;line-height:1.8;font-weight:600;min-height:44px;display:list-item;padding-block:9px}
+details[open]>summary{border-bottom:1px solid #e3ece7;margin-bottom:12px}
+#city-search-fold,#scene-view-fold{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--madar-shadow);margin-bottom:12px;padding:0 16px}
+#city-search-fold .settings,#scene-view-fold .camera-tools{box-shadow:none;border:0;padding-inline:0;margin-bottom:12px}
+.upcoming-prayers{padding-inline:14px}
+.upcoming-prayers summary{font-size:14px}
+.stage{box-shadow:0 8px 28px #15374418;border-color:#91a9ac;border-radius:16px}
+.timeline{padding-top:12px}
+.timeline-ticks{font-variant-numeric:tabular-nums}
+.stops button{border-radius:11px;background:#fff;min-height:54px}
+.stops button.active{background:#e7f2ed;border-color:#176b73;color:#145b55;box-shadow:inset 0 -3px #176b73}
+.stops button small{color:#516b70}
+.lesson h2{font-size:23px}
+.restriction{line-height:1.8}
+.below-scene-rings span{border-radius:8px}
+.ring-double{border-color:#8c48c1!important}
+.transport{gap:10px}
+.transport button{min-height:42px}
+.live-classroom-bar{background:#f0f6f1!important;border:1px solid #cbded4!important;border-radius:16px!important;box-shadow:var(--madar-shadow);padding:18px!important}
+.live-classroom-bar h2{font-size:21px}
+.live-classroom-bar p{font-size:14px;margin:8px 0}
+.live-classroom-bar button{margin:4px 0 4px 6px}
+#endLive{color:#8c3434;background:#fff;border-color:#dbc7c7}
+#liveStatus:not(:empty),#learningModeStatus,#siteSaveConfirmation:not(:empty){background:#fff;border:1px solid #d8e5dd;border-radius:10px;padding:9px 12px;line-height:1.8}
+#siteCopyPanel>h2{font-size:25px}
+#siteCopyForm>section{margin-block:26px;padding:20px;border:1px solid #d8e5dd;border-radius:14px;background:#f7faf7}
+#siteCopyForm>section h2{margin-top:0;font-size:21px}
+#pageManagement label{padding:12px;background:#fff;border:1px solid #dce6e0;border-radius:10px}
+#liveViewLink{font-size:13px}
+.cloud-gate form{box-shadow:0 16px 48px #163d4614;border-radius:20px!important}
+.cloud-gate h1{font-size:clamp(26px,3vw,36px)!important}
+.cloud-gate button{min-width:110px}
+#cloudLoginStatus:not(:empty){background:#f4f7f3;border-radius:9px;padding:10px;font-size:14px}
+.form label,.teacher-card label{line-height:1.8}
+.form h2,.teacher-card h2{font-size:22px}
+table{font-variant-numeric:tabular-nums}
+th{background:#edf4ef;color:#244e53}
+footer{background:#f0f4ee;border-top:1px solid #dce6da;color:#556c68;line-height:1.9;padding:24px 4%}
+.card{transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:#88b5a7;box-shadow:0 8px 28px #163d4617}
+@media(max-width:1000px){.intro p{max-width:none}nav button{min-height:44px}.live-classroom-bar{padding:14px!important}}
+@media(max-width:760px){body{font-size:15px}.top{gap:12px}.top nav{gap:4px;justify-content:flex-start}.top nav button{font-size:13px;padding:8px 11px}.brand{font-size:25px}main{padding-inline:4%}.public-banner{font-size:13px!important}#city-search-fold,#scene-view-fold{padding-inline:12px}details>summary{font-size:14px}.camera-tools .buttons{gap:8px}.camera-tools button{min-height:42px;font-size:12px}.camera-tools label{min-height:36px}.transport{gap:8px}.transport button{min-height:44px}.stops button{min-width:88px}.scene-rings span{line-height:1.7}.live-classroom-bar button{min-height:44px}.live-classroom-bar p{font-size:13px}.cloud-gate form{padding:24px!important;width:min(94vw,460px)!important}.form input,.form select,.form textarea{max-width:100%}footer{font-size:12px}}
+@media(prefers-reduced-motion:reduce){button,.card{transition:none}}
 </style><style>.timeline>input,input[type=range][id*=time],input[type=range][id*=Time]{direction:rtl!important}.platform-home{display:inline-block;padding:9px 14px;color:#176b60;background:white;border-radius:10px;margin:10px;text-decoration:none}</style><script src="cloud-config.js"></script></head>
 <body><a class="platform-home" href="index.html">← الرئيسية</a><header class="top"><a class="brand" href="#"><span class="brand-mark">☀</span><span>مدار<small>رحلة الشمس ومواقيت الصلاة</small></span></a><nav aria-label="أقسام الموقع"><button class="nav active" data-panel="explore">المشهد التفاعلي</button><button class="nav" data-panel="quiz">اختبر فهمك</button><button class="nav" data-panel="teacher">أدوات المعلم</button><button class="nav" data-panel="sources">المراجع والضبط</button></nav><button id="fullscreen" class="quiet">عرض للطلاب ⛶</button></header>
 <main><section id="explore" class="panel"><div class="intro"><div><span class="eyebrow">شاهد العلامة، وافهم الوقت</span><h1>من ظلمة الليل إلى غياب الشفق</h1></div><p>حرّك الزمن لتراقب الشمس والظل، وتتعرّف إلى أوقات الصلاة والنهي.</p></div>
