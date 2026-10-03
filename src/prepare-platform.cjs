@@ -25,12 +25,15 @@ const readme=fs.readFileSync(path.join(dir,'platform-readme.md'),'utf8');
 fs.writeFileSync(path.join(root,'README.md'),readme);fs.writeFileSync(path.join(root,'.gitignore'),'node_modules/\n*.zip\nreports/\n.DS_Store\n');
 for(const name of ['index.html','education.html','display.html','display-teacher.html']){const dest=path.join(root,'docs',name);let content=fs.readFileSync(dest,'utf8');content=content.replace('</head>','<script src="cloud-config.js"></script></head>').replace('</body>','<script src="cloud-access.js?v=20261003-copy3"></script></body>');fs.writeFileSync(dest,content)}
 for(const name of ['cloud-config.js','cloud-access.js'])fs.copyFileSync(path.join(dir,name),path.join(root,'docs',name));
-const assets={'docs/index.html':fs.readFileSync(path.join(root,'docs','index.html'),'utf8'),'docs/education.html':fs.readFileSync(path.join(root,'docs','education.html'),'utf8'),'docs/display.html':fs.readFileSync(path.join(root,'docs','display.html'),'utf8'),'docs/cloud-config.js':fs.readFileSync(path.join(dir,'cloud-config.js'),'utf8'),'docs/cloud-access.js':fs.readFileSync(path.join(dir,'cloud-access.js'),'utf8'),'README.md':readme};
+const publicDest=path.join(root,'docs','index.html');fs.writeFileSync(publicDest,fs.readFileSync(publicDest,'utf8').replace('</body>','<script src="gps-welcome.js?v=20261003-gps1"></script></body>'));
+const assets={'docs/gps-welcome.js':fs.readFileSync(path.join(dir,'gps-welcome.js'),'utf8'),'docs/index.html':fs.readFileSync(path.join(root,'docs','index.html'),'utf8'),'docs/education.html':fs.readFileSync(path.join(root,'docs','education.html'),'utf8'),'docs/display.html':fs.readFileSync(path.join(root,'docs','display.html'),'utf8'),'docs/cloud-config.js':fs.readFileSync(path.join(dir,'cloud-config.js'),'utf8'),'docs/cloud-access.js':fs.readFileSync(path.join(dir,'cloud-access.js'),'utf8'),'README.md':readme};
 fs.writeFileSync(path.join(root,'docs','teacher.html'),author.replace('<script>window.MADAR_SOURCE=',()=>`<script>window.MADAR_ASSETS=${JSON.stringify(assets).replace(/</g,'\\u003c')};window.MADAR_SOURCE=`));
 const adminHtml=author.replace('<script>window.MADAR_SOURCE=',()=>`<script>window.MADAR_ADMIN=true;window.MADAR_ASSETS=${JSON.stringify(assets).replace(/</g,'\\u003c')};window.MADAR_SOURCE=`);
 fs.writeFileSync(path.join(root,'docs','admin.html'),adminHtml);
 console.log(root);
 for(const name of ['reset-password.html','reset-password.js'])fs.copyFileSync(path.join(dir,name),path.join(root,'docs',name));
+fs.copyFileSync(path.join(dir,'gps-welcome.js'),path.join(root,'docs','gps-welcome.js'));
+
 
 
 

@@ -6,7 +6,7 @@ const c=await b.newContext(),root=path.resolve(__dirname,'../../docs');
 await c.route('http://localhost:9123/**',r=>{const name=path.basename(new URL(r.request().url()).pathname)||'index.html';return r.fulfill({contentType:name.endsWith('.js')?'text/javascript':'text/html',body:name==='cloud-config.js'?"window.MADAR_CLOUD={url:'',publishableKey:''}":fs.readFileSync(path.join(root,name))})});
 const p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
 for(const name of ['index.html','display.html','display-teacher.html']){
- await p.goto('http://localhost:9123/'+name);
+ await p.goto('http://localhost:9123/'+name);if(name==='index.html')await p.locator('#welcomeSkip').click();
  for(const id of ['city-search-fold','scene-view-fold'])assert.equal(await p.locator('#'+id).evaluate(n=>n.open),false);
  assert.equal(await p.locator('.upcoming-prayers').evaluate(n=>n.open),false);
  await p.locator('#city-search-fold > summary').click();assert.ok(await p.locator('#city').isVisible());
@@ -22,6 +22,6 @@ for(const name of ['index.html','display.html','display-teacher.html']){
  for(const width of [390,768,1440]){await p.setViewportSize({width,height:900});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),name+' overflow '+width)}
  await p.setViewportSize({width:1440,height:900});console.log('PASS '+name+': folds, WebGL stages, reverse time, prayer list, responsive widths');
 }
-for(const name of ['education.html','teacher.html','exercises.html','admin.html']){await p.goto('http://localhost:9123/'+name);assert.ok(await p.locator('main').count());}
+for(const name of ['education.html','teacher.html','exercises.html','admin.html']){await p.goto('http://localhost:9123/'+name);if(name==='index.html')await p.locator('#welcomeSkip').click();assert.ok(await p.locator('main').count());}
 assert.deepEqual(errors,[]);console.log('PASS all seven entry screens load without JavaScript errors');
 }finally{await b.close()}})().catch(e=>{console.error(e);process.exit(1)});
