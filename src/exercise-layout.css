@@ -1,0 +1,85 @@
+/* The scene sets the desktop panel height; long questions scroll inside their body. */
+#exercise>.work{align-items:start;grid-template-columns:minmax(0,1.75fr) minmax(310px,1fr);gap:18px}
+#exercise>.work>div{min-width:0}
+#exercise .task{padding:0;display:flex;flex-direction:column;min-width:0;height:var(--scene-block-height,560px);overflow:hidden}
+.task-body{padding:20px 22px;overflow:auto;min-height:0;flex:1;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#b5c8bd transparent}
+#exercise .task h2{font-size:22px;line-height:1.45;margin:10px 0}
+#exercise #prompt{font-size:15px;line-height:1.65;margin:10px 0}
+#exercise #objective{display:block;font-size:12px;color:var(--muted)}
+#exercise #confidenceLabel{margin:15px 0 7px;font-size:13px}
+#exercise .confidence button{min-height:38px;padding:8px 5px;font-size:12px}
+#exercise .actions{margin-top:12px;gap:8px}
+#exercise #feedback{margin-top:12px;padding:12px 14px;font-size:14px;line-height:1.65}
+#exercise #sessionMessage:empty{display:none}
+#exercise #sessionMessage{margin:10px 0 0;font-size:12px;line-height:1.5}
+#exercise #autoAdvance{margin-top:10px}
+.task-footer{padding:12px 16px;background:#f8faf6;border-top:1px solid var(--line);flex-shrink:0}
+.task-nav{display:flex;align-items:stretch;gap:8px}
+.task-nav button{flex:1;min-height:44px;padding:10px;font-size:14px}
+.task-footer .answer-actions{margin:0!important}
+.answer-actions #confirm{flex:1}
+.answer-actions #hint{flex:0 0 auto}
+#exercise #next{background:var(--green);color:white}
+#exercise #retry{flex:0 1 auto;font-size:12px}
+.review-note{font-size:11px;color:var(--muted);margin:0 0 8px}
+.question-feedback{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.question-feedback summary{cursor:pointer;font-size:12px;color:var(--green);padding:5px 0}
+.question-feedback label{font-size:12px!important;margin:6px 0!important}
+.question-feedback select{font-size:13px;padding:8px}
+#exercise .task #quizWrap{padding:12px 0 0}
+#exercise .task #quizWrap h2{font-size:16px;margin:7px 0 10px}
+#exercise .task #quizWrap .eyebrow{font-size:12px}
+#exercise .options{gap:7px}
+#exercise .options button{font-size:14px;padding:10px 12px;min-height:40px}
+#exercise .scene .controls{padding:12px 18px}
+#exercise .controls label{font-size:14px}
+#exercise .controls small{font-size:12px}
+#exercise .scene-note{font-size:11px;line-height:1.5;padding:9px 14px}
+#exercise .session-bar{padding:12px 18px;gap:10px;margin-bottom:14px}
+#exercise .session-bar h2{font-size:16px;margin-bottom:4px}
+#exercise .session-bar small{font-size:11px}
+#exercise .back{margin-bottom:12px;padding:10px 14px;font-size:13px}
+@media(min-width:761px) and (max-width:1050px){
+  #exercise>.work{grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);gap:12px}
+  .task-body{padding:16px}
+  #exercise .task h2{font-size:20px}
+  #exercise #prompt{font-size:14px}
+  .task-footer{padding:10px 12px}
+}
+@media(max-width:760px){
+  body.in-exercise header{padding:9px 14px;flex-direction:row;align-items:center;gap:8px}
+  body.in-exercise header b{font-size:21px}
+  body.in-exercise header small{display:none}
+  body.in-exercise nav{gap:0;justify-content:flex-end}
+  body.in-exercise nav button{font-size:11px;padding:8px}
+  body.in-exercise main{padding:12px 12px var(--task-footer-space,88px)}
+  body.in-exercise footer{display:none}
+  #exercise>.work{grid-template-columns:1fr;gap:12px}
+  #exercise .task{height:auto;max-height:none;border-radius:16px}
+  #exercise .scene{border-radius:16px}
+  #exercise .session-bar{padding:10px 12px;gap:6px;display:grid;grid-template-columns:1fr auto}
+  #exercise .session-bar h2{font-size:14px}
+  #exercise .session-bar b{font-size:13px}
+  #exercise .session-bar progress{width:90px}
+  #exercise .session-bar .timer{grid-column:1/-1;display:flex;justify-content:space-between;font-size:12px}
+  #exercise .session-bar .timer small{margin-top:0}
+  #exercise .session-bar #sessionPolicy{display:none}
+  #exercise .task-body{padding:15px 16px;max-height:43dvh;min-height:180px}
+  #exercise .task h2{font-size:20px;margin:7px 0}
+  #exercise #prompt{font-size:14px;margin:8px 0}
+  #exercise .task-footer{position:fixed;bottom:0;inset-inline:0;z-index:20;padding:10px max(12px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom));border-top:1px solid #c9d9ce;box-shadow:0 -5px 18px #163e4010;background:#fcfdf9}
+  #exercise .task-nav{max-width:720px;margin:auto}
+  #exercise .review-note{text-align:center;margin-bottom:6px}
+  #exercise .scene .controls{padding:9px 14px}
+  #exercise .controls small{display:none}
+  #exercise .scene-note{padding:7px 12px;font-size:10px}
+}
+@media(max-width:760px) and (orientation:landscape){
+  #exercise>.work{grid-template-columns:minmax(0,1.3fr) minmax(240px,1fr);gap:10px}
+  #exercise .task{height:var(--scene-block-height,330px)}
+  #exercise .task-body{max-height:none;min-height:0;padding:12px}
+  #exercise .task-footer{position:static;box-shadow:none;padding:9px}
+  #exercise .task-nav{flex-wrap:wrap}
+  #exercise .task-nav button{font-size:12px;min-height:38px;padding:8px}
+  body.in-exercise main{padding-bottom:12px}
+}
