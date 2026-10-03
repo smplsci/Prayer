@@ -55,5 +55,3 @@ const adminSection=document.createElement('section');adminSection.id='siteAdmini
 document.querySelector('main').append(adminSection);adminSection.append(copyPanel);copyTab.remove();loadCopyForm();
 const adminPage=function(){document.querySelectorAll('main>section').forEach(s=>s.hidden=s!==adminSection);copyPanel.hidden=false};page=adminPage;document.querySelector('header nav').replaceChildren();adminPage();document.title='مدار | المشرف الرئيسي';
 }else{copyTab.remove();copyPanel.remove()}
-
-

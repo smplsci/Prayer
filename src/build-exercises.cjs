@@ -21,7 +21,3 @@ html=html.replace(/<style id="exercise-layout">[\s\S]*?<\/style>/,'');html=html.
 html=html.replace(/<style id="teacher-studio-style">[\s\S]*?<\/style>/,'');html=html.replace('</head>','<style id="teacher-studio-style">\n'+fs.readFileSync(path.join(__dirname,'teacher-studio.css'),'utf8')+'\n</style></head>');html=html.replace(/<template id="teacherTemplate">[\s\S]*?<\/template>/,'');
 html=html.replace(/<style id="day-scene-style">[\s\S]*?<\/style>/,'');html=html.replace('</head>','<style id="day-scene-style">\n'+fs.readFileSync(path.join(__dirname,'day-scene.css'),'utf8')+'\n</style></head>');
 const start=html.indexOf("<script>\n'use strict';"),end=html.lastIndexOf('</script>');html=html.slice(0,start)+'<template id="teacherTemplate">'+fs.readFileSync(path.join(__dirname,'teacher-studio.html'),'utf8')+'</template><script>\n'+fs.readFileSync(path.join(__dirname,'exercise-engine.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'teacher-studio.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'day-scene.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'prayer-builder.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'scene-shadow.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'scene-zoom.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'platform-polish.js'),'utf8')+'\n'+fs.readFileSync(path.join(__dirname,'results-excel.js'),'utf8')+'\n'+html.slice(end);fs.writeFileSync(p,html);console.log('Built standalone exercise page');
-
-
-
-

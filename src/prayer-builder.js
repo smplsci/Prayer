@@ -17,4 +17,3 @@ openPrayerBuilder();
 // A multiple-choice scene is evidence for one question, so keep its time fixed.
 const beforePrayerMinute=setDayMinute;setDayMinute=function(minute,interaction=false){if(interaction&&current?.type==='quiz'&&current.sceneMode==='day')return;return beforePrayerMinute(minute,interaction)};
 const beforePrayerQuestion=renderQuestion;renderQuestion=function(){beforePrayerQuestion();if(current?.type==='quiz'&&current.sceneMode==='day'){['daySlider','dayTime','dayPlay'].forEach(id=>{if($(id))$(id).disabled=true});document.querySelectorAll('#dayControls button').forEach(b=>b.disabled=true)}};
-
