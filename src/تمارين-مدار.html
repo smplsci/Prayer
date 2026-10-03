@@ -383,7 +383,6 @@ openPrayerBuilder();
 const beforePrayerMinute=setDayMinute;setDayMinute=function(minute,interaction=false){if(interaction&&current?.type==='quiz'&&current.sceneMode==='day')return;return beforePrayerMinute(minute,interaction)};
 const beforePrayerQuestion=renderQuestion;renderQuestion=function(){beforePrayerQuestion();if(current?.type==='quiz'&&current.sceneMode==='day'){['daySlider','dayTime','dayPlay'].forEach(id=>{if($(id))$(id).disabled=true});document.querySelectorAll('#dayControls button').forEach(b=>b.disabled=true)}};
 
-
 // East is on the right in this schematic view; the sun progresses toward west.
 const shadowOptions=document.createElement('div');shadowOptions.innerHTML='<label class="check"><input id="showHumanShadow" type="checkbox" checked>إظهار ظل الشخص</label><label class="check"><input id="showShadowMarks" type="checkbox">إظهار علامات فيء الزوال والمثل والمثلين</label><p class="field-help">المثل والمثلان يُقاسان زيادةً على فيء الزوال. الأطوال في الرسم تعليمية، وليست قياسًا فلكيًا للموقع.</p>';sceneOptions.append(shadowOptions);
 const beforeShadowRead=readTask;readTask=function(){const t=beforeShadowRead();t.showHumanShadow=$('showHumanShadow').checked;t.showShadowMarks=$('showShadowMarks').checked;return t};

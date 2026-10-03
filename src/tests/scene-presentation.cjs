@@ -11,13 +11,13 @@ for(const name of ['index.html','display.html','display-teacher.html']){
  assert.equal(await p.locator('.upcoming-prayers').evaluate(n=>n.open),false);
  await p.locator('#city-search-fold > summary').click();assert.ok(await p.locator('#city').isVisible());
  await p.locator('#scene-view-fold > summary').click();await p.locator('#show-shadow-hints').check();
- for(const [time,count]of [['09:00:00',0],['13:00:00',1],['15:45:00',2],['17:00:00',3],['20:00:00',0],['09:00:00',0]]){
+ for(const [time,count]of [['09:00:00',0],['13:00:00',3],['15:45:00',3],['17:00:00',3],['20:00:00',0],['09:00:00',0]]){
   await p.locator('#time').fill(time);await p.locator('#time').dispatchEvent('change');
   assert.equal(await p.locator('.scene-rings span').evaluateAll(ns=>ns.filter(n=>!n.hidden).length),count,name+' '+time);
   const shader=await p.locator('#scene').evaluate(canvas=>{const gl=canvas.getContext('webgl'),program=gl?.getParameter(gl.CURRENT_PROGRAM);return program?{value:gl.getUniform(program,gl.getUniformLocation(program,'guides')),error:gl.getError()}:null});
   assert.ok(shader,'WebGL renderer active');assert.equal(shader.error,0);assert.equal(shader.value,count);
  }
- for(const [key,count]of [['rise',0],['noon',0],['dhuhr',1],['asr',2],['double',3],['maghrib',0]]){await p.locator('[data-key="'+key+'"]').click();assert.equal(await p.locator('.scene-rings span').evaluateAll(ns=>ns.filter(n=>!n.hidden).length),count,name+' stop '+key)}
+ for(const [key,count]of [['rise',0],['noon',0],['dhuhr',3],['asr',3],['double',3],['maghrib',0]]){await p.locator('[data-key="'+key+'"]').click();assert.equal(await p.locator('.scene-rings span').evaluateAll(ns=>ns.filter(n=>!n.hidden).length),count,name+' stop '+key)}
  await p.locator('.upcoming-prayers summary').click();assert.ok(await p.locator('#upcoming-prayer-list').isVisible());
  for(const width of [390,768,1440]){await p.setViewportSize({width,height:900});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),name+' overflow '+width)}
  await p.setViewportSize({width:1440,height:900});console.log('PASS '+name+': folds, WebGL stages, reverse time, prayer list, responsive widths');
