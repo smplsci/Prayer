@@ -5,7 +5,7 @@ fs.mkdirSync(path.join(root,'docs'),{recursive:true});fs.mkdirSync(path.join(roo
 const visualTheme='<style id="madar-visual-theme">'+fs.readFileSync(path.join(dir,'visual-theme.css'),'utf8')+'</style>';
 const themed=content=>content.includes('</head>')?content.replace('</head>',visualTheme+'</head>'):content.replace('<main>',visualTheme+'<main>');
 let html=themed(fs.readFileSync(path.join(dir,'تمارين-مدار.html'),'utf8'));
-html=html.replace('</head>','<script src="cloud-config.js"></script></head>').replace('</body>','<script src="cloud-access.js?v=20261003-class4"></script></body>');
+html=html.replace('</head>','<script src="cloud-config.js"></script></head>').replace('</body>','<script src="cloud-access.js?v=20261003-brand5"></script></body>');
 html=html.replace("KEY='madar-exercises-v1'","KEY=window.MADAR_PACK?'madar-course-'+window.MADAR_PACK.id:'madar-exercises-v1'");
 html=html.replace('let current=null,filter=',"if(window.MADAR_PACK&&!state.courseLoaded){state.tasks=structuredClone(window.MADAR_PACK.tasks);state.settings={...DEFAULTS,...window.MADAR_PACK.settings};state.courseLoaded=true;}\nlet current=null,filter=");
 html=html.replace('<script>\n\'use strict\';','<!--COURSE_DATA--><script>\n\'use strict\';');
@@ -25,7 +25,7 @@ fs.writeFileSync(path.join(root,'docs','index.html'),publicScreen);
 fs.writeFileSync(path.join(root,'docs','education.html'),landing);
 const readme=fs.readFileSync(path.join(dir,'platform-readme.md'),'utf8');
 fs.writeFileSync(path.join(root,'README.md'),readme);fs.writeFileSync(path.join(root,'.gitignore'),'node_modules/\n*.zip\nreports/\n.DS_Store\n');
-for(const name of ['index.html','education.html','display.html','display-teacher.html']){const dest=path.join(root,'docs',name);let content=fs.readFileSync(dest,'utf8');content=content.replace('</head>','<script src="cloud-config.js"></script></head>').replace('</body>','<script src="cloud-access.js?v=20261003-class4"></script></body>');fs.writeFileSync(dest,content)}
+for(const name of ['index.html','education.html','display.html','display-teacher.html']){const dest=path.join(root,'docs',name);let content=fs.readFileSync(dest,'utf8');content=content.replace('</head>','<script src="cloud-config.js"></script></head>').replace('</body>','<script src="cloud-access.js?v=20261003-brand5"></script></body>');fs.writeFileSync(dest,content)}
 for(const name of ['cloud-config.js','cloud-access.js'])fs.copyFileSync(path.join(dir,name),path.join(root,'docs',name));
 const publicDest=path.join(root,'docs','index.html');fs.writeFileSync(publicDest,fs.readFileSync(publicDest,'utf8').replace('</body>','<script src="gps-welcome.js?v=20261003-gps1"></script></body>'));
 const assets={'docs/gps-welcome.js':fs.readFileSync(path.join(dir,'gps-welcome.js'),'utf8'),'docs/index.html':fs.readFileSync(path.join(root,'docs','index.html'),'utf8'),'docs/education.html':fs.readFileSync(path.join(root,'docs','education.html'),'utf8'),'docs/display.html':fs.readFileSync(path.join(root,'docs','display.html'),'utf8'),'docs/cloud-config.js':fs.readFileSync(path.join(dir,'cloud-config.js'),'utf8'),'docs/cloud-access.js':fs.readFileSync(path.join(dir,'cloud-access.js'),'utf8'),'README.md':readme};
@@ -45,4 +45,4 @@ fs.copyFileSync(path.join(dir,'gps-welcome.js'),path.join(root,'docs','gps-welco
 fs.copyFileSync(path.join(dir,'live-classroom.js'),path.join(root,'docs','live-classroom.js'));
 for(const [dest,source] of [['live-teacher.html','display-teacher.html'],['live-student.html','display.html']]){let live=fs.readFileSync(path.join(root,'docs',source),'utf8').replace('</body>','<script src="live-classroom.js?v=class4"></script></body>');live=live.replace('</head>','<style>[data-panel="quiz"],[data-panel="teacher"],#quiz,#teacher,.student-next-step,#fullscreen{display:none!important}</style></head>');fs.writeFileSync(path.join(root,'docs',dest),live)}
 
-{const dest=path.join(root,'docs','reset-password.html');let html=fs.readFileSync(dest,'utf8');html=themed(html);html=html.replace('</html>','<script src="cloud-access.js?v=20261003-class4"></script></html>');fs.writeFileSync(dest,html)}
+{const dest=path.join(root,'docs','reset-password.html');let html=fs.readFileSync(dest,'utf8');html=themed(html);html=html.replace('</html>','<script src="cloud-access.js?v=20261003-brand5"></script></html>');fs.writeFileSync(dest,html)}
