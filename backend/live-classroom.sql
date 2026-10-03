@@ -1,5 +1,5 @@
--- Run once AFTER schema.sql. Live scene links grant viewing, never control.
-create table public.live_rooms (
+-- Run AFTER schema.sql; safe to re-run. Live scene links grant viewing, never control.
+create table if not exists public.live_rooms (
  id uuid primary key default gen_random_uuid(),
  owner_id uuid not null default auth.uid() references auth.users(id),
  join_token uuid not null unique default gen_random_uuid(),
@@ -11,13 +11,14 @@ create table public.live_rooms (
 alter table public.live_rooms enable row level security;
 revoke all on public.live_rooms from anon,authenticated;
 grant select,insert,update on public.live_rooms to authenticated;
+drop policy if exists live_room_owner on public.live_rooms;
 create policy live_room_owner on public.live_rooms for all to authenticated
 using (owner_id=auth.uid() and public.current_madar_role() in ('admin','teacher'))
 with check (owner_id=auth.uid() and public.current_madar_role() in ('admin','teacher'));
-create function public.read_live_room(view_token uuid)
+create or replace function public.read_live_room(view_token uuid)
 returns table(payload jsonb,updated_at timestamptz,active boolean)
 language sql stable security definer set search_path=public
-as $$ select r.payload,r.updated_at,r.active from public.live_rooms r
+as $$ select case when r.active then r.payload else '{}'::jsonb end,r.updated_at,r.active from public.live_rooms r
  where r.join_token=view_token and r.expires_at>now() $$;
 revoke all on function public.read_live_room(uuid) from public;
 grant execute on function public.read_live_room(uuid) to anon,authenticated;
