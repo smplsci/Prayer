@@ -30,6 +30,7 @@ fs.writeFileSync(path.join(root,'docs','teacher.html'),author.replace('<script>w
 const adminHtml=author.replace('<script>window.MADAR_SOURCE=',()=>`<script>window.MADAR_ADMIN=true;window.MADAR_ASSETS=${JSON.stringify(assets).replace(/</g,'\\u003c')};window.MADAR_SOURCE=`);
 fs.writeFileSync(path.join(root,'docs','admin.html'),adminHtml);
 console.log(root);
+for(const name of ['reset-password.html','reset-password.js'])fs.copyFileSync(path.join(dir,name),path.join(root,'docs',name));
 
 
 
